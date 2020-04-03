@@ -5,16 +5,17 @@ const employeeCtrl = {};
 employeeCtrl.getEmployees = async (req, res) => {
   const employees = await Employee.find();
   res.json(employees);
-};
+}
 
 employeeCtrl.createEmployee = async(req, res)=> {
-    
+    console.log(req.body);
+    res.json(req.body);
 };
 
-employeeCtrl.getEmployee =  async(req, res)=> {};
+// employeeCtrl.getEmployee = function(){};
 
-employeeCtrl.editEmployee = async(req, res)=> {};
+// employeeCtrl.editEmployee = function() {};
 
-employeeCtrl.deleteEmployee = async(req, res)=>  {};
+// employeeCtrl.deleteEmployee = function(){};
 
 module.exports = employeeCtrl;
