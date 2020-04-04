@@ -4,17 +4,17 @@ const app = express();
 
 const { mongoose } = require("./database");
 
-// Setings
+// 设置
 app.set("port", process.env.PORT || 3000);
 
-// Middlewares
-app.use(morgan("dev")); // morgan 为express的默认log
+// 中间件
+app.use(morgan("dev")); // morgan 为express的默认日志组件
 app.use(express.json());
 
-// Routes
-app.use('/api/employees',require('./routes/employee.routes'));
+// 路由
+app.use('/api/employees',require('./routes/employee.routes')); // 配置路由
 
-// Starting the server
+// 启动服务器并监听端口
 app.listen(app.get("port"), () => {
   console.log("Server on port", app.get("port"));
 });
