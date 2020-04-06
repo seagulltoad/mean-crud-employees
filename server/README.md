@@ -7,5 +7,6 @@ SERVER:
  yarn add nodemon -D
  yarn add morgan
  yarn add mongoose
+ yarn add cors
 
 

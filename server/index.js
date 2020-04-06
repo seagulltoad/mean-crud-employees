@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const app = express();
 
 const { mongoose } = require("./database");
@@ -10,9 +11,14 @@ app.set("port", process.env.PORT || 3000);
 // 中间件
 app.use(morgan("dev")); // morgan 为express的默认日志组件
 app.use(express.json());
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+  })
+);
 
 // 路由
-app.use('/api/employees',require('./routes/employee.routes')); // 配置路由
+app.use("/api/employees", require("./routes/employee.routes")); // 配置路由
 
 // 启动服务器并监听端口
 app.listen(app.get("port"), () => {
